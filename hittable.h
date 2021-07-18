@@ -4,9 +4,12 @@
 
 #include "ray.h"
 
+class material;
+
 struct hit_record {         // 记录交点的位置、法向、t值
     Vector3f p;
     Vector3f n;
+    std::shared_ptr<material> mat_ptr;
     double t;
     bool front_face;        // 待修改
 

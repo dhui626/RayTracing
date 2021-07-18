@@ -146,7 +146,9 @@
     <ClInclude Include="camera.h" />
     <ClInclude Include="hittable.h" />
     <ClInclude Include="hittable_list.h" />
+    <ClInclude Include="material.h" />
     <ClInclude Include="ray.h" />
+    <ClInclude Include="rtweekend.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

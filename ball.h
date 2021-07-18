@@ -8,7 +8,7 @@ class ball : public hittable {
 
 public:
     ball() {}
-    ball(Vector3f cen, double r) : center(cen), radius(r) {};
+    ball(Vector3f cen, double r, shared_ptr<material> m) : center(cen), radius(r), mat_ptr(m) {};
 
     virtual bool hit(
         const ray& r, double t_min, double t_max, hit_record& rec) const override;
@@ -16,6 +16,7 @@ public:
 private:
     Vector3f center;
     double radius;
+    shared_ptr<material> mat_ptr;
 };
 
 bool ball::hit(const ray& r, double t_min, double t_max, hit_record& rec) const {
@@ -44,6 +45,7 @@ bool ball::hit(const ray& r, double t_min, double t_max, hit_record& rec) const 
         Vector3f outward_normal = (rec.p - center) / radius;
         rec.set_face_normal(r, outward_normal);
         //rec.n = (rec.p - center) / radius;
+        rec.mat_ptr = mat_ptr;
 
         return true;
     }
